@@ -11,7 +11,7 @@ def checkout() {
 	stage 'checkout, merge and compile'
 	node('master') {
 	    // git with submodules
-	    git url: 'https://github.com/bobkubista/examples.git', branch: 'master'
+	    git url: 'https://github.com/bobkubista/serverproperties.git', branch: 'master'
 	    compile()
 	    step([$class: 'ArtifactArchiver', artifacts: '**/target/*.?ar', fingerprint: true])
 	    stash includes: '*', name: 'buildStash'
