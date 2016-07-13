@@ -1,13 +1,15 @@
 /**
  * Bob Kubista's examples
  */
-package bobkubista.example.utils.property;
+package com.bobkubista.utils.property;
 
 import java.util.Properties;
 
 import org.apache.commons.configuration2.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.bobkubista.utils.property.ServerProperties;
 
 /**
  * @author Bob
@@ -17,7 +19,7 @@ public class ServerPropertiesTest {
 
     /**
      * Test method for
-     * {@link bobkubista.example.utils.property.ServerProperties#get()}.
+     * {@link com.bobkubista.utils.property.ServerProperties#get()}.
      */
     @Test
     public void testGetDefaults() {

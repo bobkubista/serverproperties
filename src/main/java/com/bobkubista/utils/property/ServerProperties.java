@@ -1,4 +1,4 @@
-package bobkubista.example.utils.property;
+package com.bobkubista.utils.property;
 
 import java.net.URL;
 import java.util.Optional;
