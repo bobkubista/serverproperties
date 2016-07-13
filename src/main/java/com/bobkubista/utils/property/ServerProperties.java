@@ -1,6 +1,5 @@
 package com.bobkubista.utils.property;
 
-import java.net.URL;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.function.Supplier;
@@ -66,15 +65,10 @@ public enum ServerProperties {
                 final Configurations configs = new Configurations();
                 Configuration defaultConfig;
                 try {
-                    final Optional<URL> serverPropLocation = Optional.ofNullable(Thread.currentThread()
+                    defaultConfig = configs.properties(loadPropertyLocationFromJDNI().orElse(Thread.currentThread()
                             .getContextClassLoader()
-                            .getResource(SERVER_PROP_FILE));
-
-                    defaultConfig = configs.properties(serverPropLocation.map(l -> l.toString())
-                            .orElse(loadPropertyLocationFromJDNI().orElse(Thread.currentThread()
-                                    .getContextClassLoader()
-                                    .getResource(ServerProperties.SERVER_PROP_FILE)
-                                    .toString())));
+                            .getResource(ServerProperties.SERVER_PROP_FILE)
+                            .toString()));
                     defaultConfig.getKeys()
                             .forEachRemaining(key -> ServerProperties.setDefaults(key, systemConfig, defaultConfig.getProperty(key)));
                 } catch (final ConfigurationException e) {
